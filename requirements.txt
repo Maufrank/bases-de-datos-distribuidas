@@ -1,0 +1,13 @@
+Flask
+flask_api
+selenium
+behave
+firebase_admin
+python-dotenv # para cargar las variables de entorno de .env
+email_validator
+flask-wtf
+flask-testing
+blinker
+requests
+firebase
+mysql-connector-python

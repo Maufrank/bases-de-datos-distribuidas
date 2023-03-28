@@ -1,0 +1,48 @@
+{% extends 'base/header_director.html' %}
+
+{% block titulo %}
+<title>Agregar Tutor</title>
+{% endblock %}
+
+
+{% block contenido %}
+
+
+      <!-- titulo -->
+      <div class="container-fluid my-4 d-flex justify-content-center">
+        <h2>Agregar sucursal</h2>
+  </div>
+
+  <!-- Formulario de registro de tutor -->
+  <div class="container-fluid my-4 ">
+  <form id="mytutor" class="row g-3 px-5 py-3 bg-light rounded" action="/conexion/registrar/sucursal" method="post">
+    
+    
+    <div class="col-md-6">
+      <label for="usuario" class="form-label">Username</label>
+      <input type="text" class="form-control " id="usuario" name="usuario">
+    </div>
+    <div class="col-md-6">
+      <label for="pass" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="pass" name="pass">
+    </div>
+    <div class="col-md-12">
+        <label for="sucursal" class="form-label">Nombre de la sucursal</label>
+        <input type="text" class="form-control" id="sucursal" name="sucursal">
+      </div>
+      <div class="col-md-12">
+        <label for="url" class="form-label">Direccion de la base de datos</label>
+        <input type="text" class="form-control" id="url" name="url">
+      </div>
+      
+
+      
+    
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">Agregar</button>
+    </div>
+  </form>
+  </div>
+  <!-- <script src="../static/scripts/validatefrom_addtutor.js"></script> -->
+
+{% endblock %}

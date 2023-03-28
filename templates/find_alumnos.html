@@ -1,0 +1,128 @@
+{% extends 'base/header_director.html' %}
+
+{% block titulo %}
+<title>Bases de datos</title>
+{% endblock %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../static/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"> -->
+
+</head>
+
+<body>
+
+  <!-- titulo -->
+  <div class="container-fluid my-4 d-flex justify-content-center">
+    <h2>Ver alumnos</h2>
+  </div>
+
+
+  <!-- Formulario de registro de tutor -->
+  <div class="container my-4 " >
+    <table class="table px-5" id="tablaPermisos">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Nombre</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Carrera</th>
+          <th scope="col">Sexo</th>
+
+
+        </tr>
+      </thead>
+
+    </table>
+  </div>
+{% endblock %}
+
+
+  {% block scripts %}
+  {{ super() }}
+    <script>
+      $(document).ready(function() {
+        var buttonCommon = {
+            exportOptions: {
+                format: {
+                    body: function ( data, row, column, node ) {
+                        // Strip $ from salary column to make it numeric
+                        return column === 5 ?
+                            data.replace( /[$,]/g, '' ) :
+                            data;
+                    }
+                }
+            }
+        };
+
+
+        $(function(){
+
+          $.ajax({
+            url: '/conexion/get/alumnos',
+            type:"GET",
+            success: function(response){
+              console.log("hola->",response)
+              $('#tablaPermisos').DataTable({
+                pageLenght:10,
+                "data":response["datos"],
+                "columns":[
+                  {"data":"nombre"},
+                  {"data":"edad"},
+                  {"data":"carrera"},
+                  {"data":"sexo"},
+
+                ],
+
+                dom: 'Bfrtip',
+                buttons: [
+                    $.extend( true, {}, buttonCommon, {
+                        extend: 'copyHtml5'
+                    } ),
+                    $.extend( true, {}, buttonCommon, {
+                        extend: 'excelHtml5',
+
+                    } ),
+                    $.extend( true, {}, buttonCommon, {
+                        extend: 'pdfHtml5',
+                        title: 'Alumnos',
+                        
+                    } )
+                ]
+
+                
+              })
+            }
+          })
+        });
+      });
+
+
+        
+
+
+    </script>
+
+  {% endblock %}
+
+
+
+</body>
+<!-- <script src="../static/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script> -->
+</html>

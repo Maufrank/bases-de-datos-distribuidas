@@ -1,0 +1,98 @@
+{% extends 'base/header_director.html' %}
+
+{% block titulo %}
+<title>Agregar Alumno</title>
+{% endblock %}
+
+{% block contenido %}
+
+      <!-- titulo -->
+      <div class="container-fluid my-4 d-flex justify-content-center">
+            <h2>Agregar Alumno</h2>
+      </div>
+
+      <!-- Formulario de registro de tutor -->
+      <div class="container-fluid my-4 ">
+      <form id="myform" class="row g-3 px-5 py-3 bg-light rounded" action="/alumno/register" method="post">
+
+        <div class="col-md-6">
+          <label for="inputNombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control " id="inputNombre" name="inputNombre">
+        </div>
+        <div class="col-md-6">
+          <label for="inputApellidos" class="form-label">Apellidos</label>
+          <input type="text" class="form-control" id="inputApellidos" name="inputApellidos">
+        </div>
+        <div class="col-md-12">
+            <label for="inputCorreo" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="inputCorreo" name="inputCorreo">
+          </div>
+          <div class="col-md-12">
+            <label for="inputUsername" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" id="inputUsername" name="inputUsername">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="inputPassword" name="inputPassword">
+          </div>
+          <div class="col-md-6">
+            <label for="inputRepetPassword" class="form-label">Repetir contraseña</label>
+            <input type="password" class="form-control" id="inputRepetPassword"  name="inputRepetPassword">
+          </div>
+          <div class="col-md-4">
+            <label for="inputCuatrimestre" class="form-label">Cuatrimestre actual</label>
+            <select id="inputCuatrimestre" class="form-select" name="inputCuatrimestre">
+              <option selected>Selecciona cuatrimestre actual</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputDivision" class="form-label">Division</label>
+            <select id="inputDivision" class="form-select" name="inputDivision">
+              <option selected>Selecciona Division</option>
+              <option>tic</option>
+              <option>ird</option>
+              <option>ev</option>
+              
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputCarrera" class="form-label">Carrera</label>
+            <select id="inputCarrera" class="form-select" name="inputCarrera">
+              <option selected>Seleccionar carrera</option>
+              <option>Desarrollo de software</option>
+              <option>Infraestructura de redes</option>
+              <option>Entornos virtuales</option>
+              
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputGrupo" class="form-label">Grupo</label>
+            <select id="inputGrupo" class="form-select" name="inputGrupo">
+              <option selected>Seleccionar grupo</option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+              
+            </select>
+          </div>
+        
+        <div class="col-12">
+          <button type="submit" class="btn btn-success">Registrarme</button>
+        </div>
+      </form>
+      </div>
+
+<script src="../static/scripts/validatefrom_addalum.js"></script>
+    
+      {% endblock %}
